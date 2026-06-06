@@ -9,6 +9,25 @@ import Tag from '../components/Tag'
 import NotesModal from '../components/NotesModal'
 import './RecipePage.css'
 
+function scaleAmount(amount: string, ratio: number): string {
+  if (ratio === 1) return amount
+  // Try fraction like "1/2"
+  const fractionMatch = amount.match(/^(\d+)\/(\d+)$/)
+  if (fractionMatch) {
+    const value = (parseInt(fractionMatch[1]) / parseInt(fractionMatch[2])) * ratio
+    const rounded = Math.round(value * 10) / 10
+    return rounded % 1 === 0 ? String(Math.round(rounded)) : String(rounded)
+  }
+  // Try plain number
+  const num = parseFloat(amount)
+  if (!isNaN(num) && String(num) === amount.trim()) {
+    const scaled = num * ratio
+    const rounded = Math.round(scaled * 10) / 10
+    return rounded % 1 === 0 ? String(Math.round(rounded)) : String(rounded)
+  }
+  return amount
+}
+
 export default function RecipePage() {
   const { slug, recipeId } = useParams<{ slug: string; recipeId: string }>()
   const modulos = getModulos()
@@ -19,6 +38,8 @@ export default function RecipePage() {
   const [activeTab, setActiveTab] = useState<'ingredientes' | 'pasos'>('ingredientes')
   const [showNotes, setShowNotes] = useState(false)
   const [savedNote, setSavedNote] = useState<string | null>(null)
+  const [porciones, setPorciones] = useState(recipe?.porciones ?? 1)
+  const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     if (!session || !recipeId) return
@@ -90,23 +111,61 @@ export default function RecipePage() {
       <div className="recipe-page__content">
         {activeTab === 'ingredientes' ? (
           <div>
+            {/* Portion scaling controls */}
+            <div className="recipe-page__portions-control">
+              <span className="recipe-page__portions-label">Porciones</span>
+              <button
+                className="recipe-page__portions-btn"
+                onClick={() => setPorciones(p => Math.max(1, p - 1))}
+                disabled={porciones <= 1}
+                aria-label="Reducir porciones"
+              >−</button>
+              <span className="recipe-page__portions-value">{porciones}</span>
+              <button
+                className="recipe-page__portions-btn"
+                onClick={() => setPorciones(p => Math.min(20, p + 1))}
+                disabled={porciones >= 20}
+                aria-label="Aumentar porciones"
+              >+</button>
+            </div>
+
             {recipe.ingredient_groups.map((group, gi) => (
               <div key={gi}>
                 {group.section && (
                   <div className="recipe-page__section-heading">{group.section}</div>
                 )}
                 <div className="recipe-page__ingredient-header">
+                  <span></span>
                   <span className="recipe-page__ingredient-amount">Cant.</span>
                   <span>Unidad</span>
                   <span>Ingrediente</span>
                 </div>
-                {group.items.map((item, ii) => (
-                  <div key={ii} className="recipe-page__ingredient-row">
-                    <span className="recipe-page__ingredient-amount">{item.amount}</span>
-                    <span className="recipe-page__ingredient-unit">{item.unit}</span>
-                    <span>{item.description}</span>
-                  </div>
-                ))}
+                {group.items.map((item, ii) => {
+                  const key = `${gi}-${ii}`
+                  const checked = checkedItems.has(key)
+                  const ratio = porciones / (recipe.porciones || 1)
+                  return (
+                    <div
+                      key={ii}
+                      className={`recipe-page__ingredient-row${checked ? ' recipe-page__ingredient-row--checked' : ''}`}
+                      onClick={() => {
+                        setCheckedItems(prev => {
+                          const next = new Set(prev)
+                          if (next.has(key)) next.delete(key)
+                          else next.add(key)
+                          return next
+                        })
+                      }}
+                    >
+                      <span className="recipe-page__ingredient-checkbox">
+                        <input type="checkbox" checked={checked} readOnly tabIndex={-1} />
+                      </span>
+                      <span className="recipe-page__ingredient-amount">{scaleAmount(item.amount, ratio)}</span>
+                      <span className="recipe-page__ingredient-unit">{item.unit}</span>
+                      <span>{item.description}</span>
+                    </div>
+                  )
+                })}
               </div>
             ))}
           </div>

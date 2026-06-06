@@ -141,11 +141,12 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 13. P1 — Portion Scaling
+## 13. P1 — Portion Scaling ✅
 
-- [ ] Add porciones state (default from frontmatter) to Recipe screen
-- [ ] Add +/− control in the Ingredientes tab header
-- [ ] Multiply all numeric quantities by `(selected / original)` ratio when rendering the table
+- [x] Add porciones state (default from frontmatter) to Recipe screen
+- [x] Add +/− control in the Ingredientes tab header
+- [x] Multiply all numeric quantities by `(selected / original)` ratio when rendering the table
+- [x] Ingredient checkboxes — tap row to mark off items (strikethrough + dimmed)
 
 ---
 
