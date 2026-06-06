@@ -44,25 +44,25 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 4. Auth Context
+## 4. Auth Context ✅
 
-- [ ] Create `src/context/AuthContext.tsx` — wraps app, exposes `session`, `signIn`, `signOut`
-- [ ] On mount, restore session from `localStorage` via `supabase.auth.getSession()`
-- [ ] Listen to `supabase.auth.onAuthStateChange` to keep session in sync
-- [ ] Export `useAuth()` hook for consuming components
+- [x] Create `src/context/AuthContext.tsx` — wraps app, exposes `session`, `signIn`, `signOut`
+- [x] On mount, restore session from `localStorage` via `supabase.auth.getSession()`
+- [x] Listen to `supabase.auth.onAuthStateChange` to keep session in sync
+- [x] Export `useAuth()` hook for consuming components
 
 ---
 
-## 5. Routing
+## 5. Routing ✅
 
-- [ ] Install and configure `react-router-dom` v6 in `App.tsx`
-- [ ] Define routes:
+- [x] Install and configure `react-router-dom` in `App.tsx`
+- [x] Define routes:
   - `/` → `HomePage`
-  - `/buscar` → `SearchPage`
-  - `/modulo/:slug` → `ModuloPage`
-  - `/modulo/:slug/receta/:recetaId` → `RecetaPage`
+  - `/search` → `SearchPage`
+  - `/module/:slug` → `ModulePage`
+  - `/module/:slug/recipe/:recipeId` → `RecipePage`
   - `/login` → `LoginPage` (no link anywhere in UI)
-- [ ] Wrap router with `AuthContext`
+- [x] Wrap router with `AuthProvider`
 
 ---
 
@@ -78,14 +78,14 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 ## 7. Home Screen (`/`)
 
 - [ ] Layout: header ("Mi Recetario" + decorative search bar) + module grid + bottom tab bar
-- [ ] Decorative search bar — tap navigates to `/buscar`
+- [ ] Decorative search bar — tap navigates to `/search`
 - [ ] Module grid: 2-column layout, first module card spans full width (featured)
 - [ ] `ModuleCard` component: module color background, large faded module number, module name, day count chip, recipe count chip
-- [ ] Tapping a card navigates to `/modulo/:slug`
+- [ ] Tapping a card navigates to `/module/:slug`
 
 ---
 
-## 8. Search Screen (`/buscar`)
+## 8. Search Screen (`/search`)
 
 - [ ] Layout: input with autofocus + results area + bottom tab bar
 - [ ] Empty state: list of all modules with their color (same visual as home cards, compact)
@@ -96,18 +96,18 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 9. Módulo Screen (`/modulo/:slug`)
+## 9. Module Screen (`/module/:slug`)
 
 - [ ] Full-screen layout, no bottom tab bar
 - [ ] Hero section: module color background, large faded module number, module name, back button
 - [ ] Horizontal scrollable day pills (Día 1 · Día 2 · Día 3…), first day selected by default
 - [ ] Recipe list filtered by selected day
 - [ ] `RecipeCard` component: badge with recipe number (e.g. "1.3"), recipe name in Playfair Display, cook time if present
-- [ ] Tapping a card navigates to `/modulo/:slug/receta/:recetaId`
+- [ ] Tapping a card navigates to `/module/:slug/recipe/:recipeId`
 
 ---
 
-## 10. Receta Screen (`/modulo/:slug/receta/:recetaId`)
+## 10. Recipe Screen (`/module/:slug/recipe/:recipeId`)
 
 - [ ] Full-screen layout, no bottom tab bar
 - [ ] Hero: module color background, recipe number badge, module name + day label, recipe title in Playfair Display, tags row
@@ -121,11 +121,11 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ## 11. Notes Feature (author only)
 
-- [ ] `NotasModal` component — full-screen overlay with markdown textarea
-- [ ] On open: fetch note from Supabase by `receta_id`
+- [ ] `NotesModal` component — full-screen overlay with markdown textarea
+- [ ] On open: fetch note from Supabase by `recipe_id`
 - [ ] Auto-save on blur or explicit save button (debounced)
 - [ ] Render saved note as markdown below the recipe hero (author session only)
-- [ ] On save: upsert to Supabase `notas` table
+- [ ] On save: upsert to Supabase `notes` table
 - [ ] Handle loading + error states gracefully
 
 ---
@@ -143,7 +143,7 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ## 13. P1 — Portion Scaling
 
-- [ ] Add porciones state (default from frontmatter) to Receta screen
+- [ ] Add porciones state (default from frontmatter) to Recipe screen
 - [ ] Add +/− control in the Ingredientes tab header
 - [ ] Multiply all numeric quantities by `(selected / original)` ratio when rendering the table
 
@@ -151,7 +151,7 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ## 14. P1 — Step-by-Step Mode
 
-- [ ] Add "Modo Cocina" button on Receta screen (Pasos tab)
+- [ ] Add "Modo Cocina" button on Recipe screen (Pasos tab)
 - [ ] Full-screen overlay showing one step at a time: large step number, large text, prev/next navigation
 - [ ] Swipe gesture support (touch events) or large prev/next buttons
 
