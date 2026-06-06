@@ -119,14 +119,14 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 11. Notes Feature (author only)
+## 11. Notes Feature (author only) ✅
 
-- [ ] `NotesModal` component — full-screen overlay with markdown textarea
-- [ ] On open: fetch note from Supabase by `recipe_id`
-- [ ] Auto-save on blur or explicit save button (debounced)
-- [ ] Render saved note as markdown below the recipe hero (author session only)
-- [ ] On save: upsert to Supabase `notes` table
-- [ ] Handle loading + error states gracefully
+- [x] `NotesModal` component — full-screen overlay with markdown textarea
+- [x] On open: fetch note from Supabase by `recipe_id`
+- [x] Auto-save on blur or explicit save button (debounced)
+- [x] Render saved note as markdown below the recipe hero (author session only)
+- [x] On save: upsert to Supabase `notes` table
+- [x] Handle loading + error states gracefully
 
 ---
 

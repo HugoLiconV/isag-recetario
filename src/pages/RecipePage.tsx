@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 import { getModulos, getRecipe } from '../lib/recipes'
 import { useAuth } from '../context/AuthContext'
+import { supabase, type Note } from '../lib/supabase'
 import BackButton from '../components/BackButton'
 import Badge from '../components/Badge'
 import Tag from '../components/Tag'
+import NotesModal from '../components/NotesModal'
 import './RecipePage.css'
 
 export default function RecipePage() {
@@ -15,6 +17,24 @@ export default function RecipePage() {
   const { session } = useAuth()
 
   const [activeTab, setActiveTab] = useState<'ingredientes' | 'pasos'>('ingredientes')
+  const [showNotes, setShowNotes] = useState(false)
+  const [savedNote, setSavedNote] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (!session || !recipeId) return
+
+    async function fetchNote() {
+      const { data } = await supabase
+        .from('notes')
+        .select('content')
+        .eq('recipe_id', recipeId!)
+        .maybeSingle()
+
+      if (data) setSavedNote((data as Note).content)
+    }
+
+    fetchNote()
+  }, [session, recipeId])
 
   if (!modulo || !recipe) return <Navigate to="/" replace />
 
@@ -41,6 +61,14 @@ export default function RecipePage() {
           </div>
         )}
       </div>
+
+      {/* Saved note (author only) */}
+      {session && savedNote && (
+        <div className="recipe-page__note">
+          <div className="recipe-page__note-label">Nota</div>
+          <div className="recipe-page__note-content">{savedNote}</div>
+        </div>
+      )}
 
       {/* Tab bar */}
       <div className="recipe-page__tabs">
@@ -96,12 +124,31 @@ export default function RecipePage() {
 
       {/* Notes FAB — only for authenticated author */}
       {session && (
-        <button className="recipe-page__notes-fab" aria-label="Notas">
+        <button className="recipe-page__notes-fab" aria-label="Notas" onClick={() => setShowNotes(true)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M12 20h9" />
             <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
           </svg>
         </button>
+      )}
+
+      {/* Notes modal */}
+      {showNotes && recipeId && (
+        <NotesModal
+          recipeId={recipeId}
+          onClose={() => {
+            setShowNotes(false)
+            // Refresh the displayed note
+            supabase
+              .from('notes')
+              .select('content')
+              .eq('recipe_id', recipeId)
+              .maybeSingle()
+              .then(({ data }) => {
+                setSavedNote(data ? (data as Note).content : null)
+              })
+          }}
+        />
       )}
     </div>
   )
