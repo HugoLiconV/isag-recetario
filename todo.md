@@ -66,12 +66,12 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 6. Shared Components
+## 6. Shared Components ✅
 
-- [ ] `BottomTabBar` — Inicio + Buscar tabs, highlights active tab, hidden on Módulo/Receta screens
-- [ ] `BackButton` — back arrow for full-screen pages (Módulo, Receta)
-- [ ] `Tag` — small pill for recipe tags
-- [ ] `Badge` — accent-colored badge (recipe number like "1.3")
+- [x] `BottomTabBar` — Inicio + Buscar tabs, highlights active tab, hidden on Módulo/Receta screens
+- [x] `BackButton` — back arrow for full-screen pages (Módulo, Receta)
+- [x] `Tag` — small pill for recipe tags
+- [x] `Badge` — accent-colored badge (recipe number like "1.3")
 
 ---
 

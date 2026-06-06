@@ -1,0 +1,21 @@
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s ease;
+}
+
+.back-button:active {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.back-button--light {
+  color: #fff;
+}
