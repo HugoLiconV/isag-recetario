@@ -31,16 +31,16 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 3. Data Layer — Recipes
+## 3. Data Layer — Recipes ✅
 
-- [ ] Define `Recipe` TypeScript type matching the `.md` frontmatter schema (modulo, modulo_slug, dia, dia_tema, orden, tags, porciones, imagen_portada)
-- [ ] Define `Modulo` type (aggregated from recipes: slug, name, days, recipe count, color)
-- [ ] Create `src/content/recipes/` directory and add one sample `.md` recipe (validate format)
-- [ ] Write `src/lib/recipes.ts` — uses Vite's `import.meta.glob` to load all `.md` files at build time
-- [ ] Parse frontmatter with `gray-matter` and markdown body, return typed `Recipe[]`
-- [ ] Build derived helpers: `getModulos()`, `getRecetasByModulo(slug)`, `getRecetasByDia(slug, dia)`, `getReceta(id)`
-- [ ] Build in-memory search index: searches recipe name + ingredients across all recipes
-- [ ] Assign a unique earthy background color per module (define color map in `src/lib/moduleColors.ts`)
+- [x] Define `Recipe` TypeScript type — `src/lib/types.ts`
+- [x] Define `Modulo` type — includes slug, name, number, days, recipe_count, color
+- [x] Create `src/content/recipes/` with one sample recipe (macarrones de frambuesa)
+- [x] Write `src/lib/recipes.ts` — uses `import.meta.glob` with `?raw` + `gray-matter`
+- [x] Parse frontmatter, title, ingredient groups (with named sections), and steps
+- [x] Helpers: `getModulos()`, `getRecipesByModulo()`, `getRecipesByDay()`, `getRecipe(id)`
+- [x] In-memory search: matches recipe title, tags, and ingredient descriptions
+- [x] `src/lib/moduleColors.ts` — stable earthy color assigned per module slug
 
 ---
 
