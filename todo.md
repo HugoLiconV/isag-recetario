@@ -75,13 +75,13 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 7. Home Screen (`/`)
+## 7. Home Screen (`/`) ✅
 
-- [ ] Layout: header ("Mi Recetario" + decorative search bar) + module grid + bottom tab bar
-- [ ] Decorative search bar — tap navigates to `/search`
-- [ ] Module grid: 2-column layout, first module card spans full width (featured)
-- [ ] `ModuleCard` component: module color background, large faded module number, module name, day count chip, recipe count chip
-- [ ] Tapping a card navigates to `/module/:slug`
+- [x] Layout: header ("Mi Recetario" + decorative search bar) + module grid + bottom tab bar
+- [x] Decorative search bar — tap navigates to `/search`
+- [x] Module grid: 2-column layout, first module card spans full width (featured)
+- [x] `ModuleCard` component: module color background, large faded module number, module name, day count chip, recipe count chip
+- [x] Tapping a card navigates to `/module/:slug`
 
 ---
 

@@ -8,7 +8,9 @@
       "Read(//Users/hugo/.nvm/versions/node/**)",
       "WebSearch",
       "Bash(npx tsc:*)",
-      "Bash(node -e:*)"
+      "Bash(node -e:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(ls:*)"
     ]
   }
 }
