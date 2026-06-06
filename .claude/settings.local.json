@@ -6,7 +6,8 @@
       "Bash(command -v nvm)",
       "Bash(nvm list *)",
       "Read(//Users/hugo/.nvm/versions/node/**)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(npx tsc:*)"
     ]
   }
 }
