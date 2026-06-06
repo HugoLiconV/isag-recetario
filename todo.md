@@ -20,27 +20,14 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 2. Supabase Configuration (manual — done in dashboard)
+## 2. Supabase Configuration ✅
 
-- [ ] Create Supabase project
-- [ ] Create `notas` table:
-  ```sql
-  CREATE TABLE notas (
-    receta_id   TEXT PRIMARY KEY,
-    contenido   TEXT,
-    updated_at  TIMESTAMPTZ DEFAULT now()
-  );
-  ```
-- [ ] Enable Row Level Security on `notas` table
-- [ ] Create auth policy (replace `UID_DEL_AUTOR` with real UID after creating the user):
-  ```sql
-  CREATE POLICY "notas_solo_autor"
-  ON notas
-  USING (auth.uid() = 'UID_DEL_AUTOR');
-  ```
-- [ ] Create author user via Supabase Auth dashboard (email + password)
-- [ ] Copy author UID and apply to the RLS policy above
-- [ ] Add Supabase project URL and anon key to `.env`
+- [x] Create Supabase project
+- [x] Create `notes` table
+- [x] Enable Row Level Security on `notes` table
+- [x] Create author user via Supabase Auth dashboard (email + password)
+- [x] Create `notes_author_only` RLS policy with real author UID
+- [x] Add Supabase project URL and anon key to `.env`
 
 ---
 

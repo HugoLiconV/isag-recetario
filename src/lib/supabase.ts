@@ -5,8 +5,8 @@ const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
-export type Nota = {
-  receta_id: string
-  contenido: string
+export type Note = {
+  recipe_id: string
+  content: string
   updated_at: string
 }

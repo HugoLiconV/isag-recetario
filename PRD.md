@@ -135,9 +135,9 @@ App pública (sin sesión)
 ### Tabla en Supabase
 
 ```sql
-CREATE TABLE notas (
-  receta_id   TEXT PRIMARY KEY,  -- ej: "reposteria-dia2-macarrones"
-  contenido   TEXT,              -- markdown libre
+CREATE TABLE notes (
+  recipe_id   TEXT PRIMARY KEY,  -- e.g. "reposteria-dia2-macarrones"
+  content     TEXT,              -- free markdown
   updated_at  TIMESTAMPTZ DEFAULT now()
 );
 ```
@@ -145,10 +145,10 @@ CREATE TABLE notas (
 ### Row Level Security
 
 ```sql
--- Solo el autor autenticado puede leer y escribir
-CREATE POLICY "notas_solo_autor"
-ON notas
-USING (auth.uid() = 'UID_DEL_AUTOR');
+-- Only the authenticated author can read and write
+CREATE POLICY "notes_author_only"
+ON notes
+USING (auth.uid() = 'AUTHOR_UID');
 ```
 
 Las queries de lectores regresan vacías a nivel de base de datos — no es ocultamiento en UI, es ausencia de datos en el payload.

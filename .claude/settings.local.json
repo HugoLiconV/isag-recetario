@@ -5,7 +5,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
       "Bash(command -v nvm)",
       "Bash(nvm list *)",
-      "Read(//Users/hugo/.nvm/versions/node/**)"
+      "Read(//Users/hugo/.nvm/versions/node/**)",
+      "WebSearch"
     ]
   }
 }
