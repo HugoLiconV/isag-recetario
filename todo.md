@@ -96,14 +96,14 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 9. Module Screen (`/module/:slug`)
+## 9. Module Screen (`/module/:slug`) ✅
 
-- [ ] Full-screen layout, no bottom tab bar
-- [ ] Hero section: module color background, large faded module number, module name, back button
-- [ ] Horizontal scrollable day pills (Día 1 · Día 2 · Día 3…), first day selected by default
-- [ ] Recipe list filtered by selected day
-- [ ] `RecipeCard` component: badge with recipe number (e.g. "1.3"), recipe name in Playfair Display, cook time if present
-- [ ] Tapping a card navigates to `/module/:slug/recipe/:recipeId`
+- [x] Full-screen layout, no bottom tab bar
+- [x] Hero section: module color background, large faded module number, module name, back button
+- [x] Horizontal scrollable day pills (Día 1 · Día 2 · Día 3…), first day selected by default
+- [x] Recipe list filtered by selected day
+- [x] `RecipeCard` component: badge with recipe number (e.g. "1.3"), recipe name in Playfair Display, cook time if present
+- [x] Tapping a card navigates to `/module/:slug/recipe/:recipeId`
 
 ---
 
