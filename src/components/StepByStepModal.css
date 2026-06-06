@@ -1,0 +1,112 @@
+.step-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6) var(--space-4);
+}
+
+.step-modal__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.step-modal__close:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.step-modal__progress {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.step-modal__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--space-4);
+}
+
+.step-modal__number {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: var(--space-4);
+}
+
+.step-modal__text {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.step-modal__nav {
+  display: flex;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+}
+
+.step-modal__nav-btn {
+  flex: 1;
+  padding: var(--space-4);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.12s ease;
+}
+
+.step-modal__nav-btn:active {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.step-modal__nav-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.step-modal__nav-btn--primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.step-modal__nav-btn--primary:active {
+  background: #a83515;
+}
+
+.step-modal__nav-btn--primary:disabled {
+  background: var(--border);
+  border-color: var(--border);
+  color: var(--text-secondary);
+}

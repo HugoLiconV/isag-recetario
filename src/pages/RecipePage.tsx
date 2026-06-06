@@ -7,6 +7,7 @@ import BackButton from '../components/BackButton'
 import Badge from '../components/Badge'
 import Tag from '../components/Tag'
 import NotesModal from '../components/NotesModal'
+import StepByStepModal from '../components/StepByStepModal'
 import './RecipePage.css'
 
 function scaleAmount(amount: string, ratio: number): string {
@@ -40,6 +41,7 @@ export default function RecipePage() {
   const [savedNote, setSavedNote] = useState<string | null>(null)
   const [porciones, setPorciones] = useState(recipe?.porciones ?? 1)
   const [checkedItems, setCheckedItems] = useState<Set<string>>(new Set())
+  const [showStepByStep, setShowStepByStep] = useState(false)
 
   useEffect(() => {
     if (!session || !recipeId) return
@@ -171,6 +173,12 @@ export default function RecipePage() {
           </div>
         ) : (
           <div className="recipe-page__steps">
+            <button
+              className="recipe-page__cooking-mode-btn"
+              onClick={() => setShowStepByStep(true)}
+            >
+              Modo Cocina
+            </button>
             {recipe.steps.map((step, i) => (
               <div key={i} className="recipe-page__step">
                 <span className="recipe-page__step-number">{i + 1}</span>
@@ -208,6 +216,11 @@ export default function RecipePage() {
               })
           }}
         />
+      )}
+
+      {/* Step-by-step mode */}
+      {showStepByStep && (
+        <StepByStepModal steps={recipe.steps} onClose={() => setShowStepByStep(false)} />
       )}
     </div>
   )

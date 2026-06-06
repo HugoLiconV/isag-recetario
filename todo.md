@@ -150,11 +150,11 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 14. P1 — Step-by-Step Mode
+## 14. P1 — Step-by-Step Mode ✅
 
-- [ ] Add "Modo Cocina" button on Recipe screen (Pasos tab)
-- [ ] Full-screen overlay showing one step at a time: large step number, large text, prev/next navigation
-- [ ] Swipe gesture support (touch events) or large prev/next buttons
+- [x] Add "Modo Cocina" button on Recipe screen (Pasos tab)
+- [x] Full-screen overlay showing one step at a time: large step number, large text, prev/next navigation
+- [x] Swipe gesture support (touch events) or large prev/next buttons
 
 ---
 
