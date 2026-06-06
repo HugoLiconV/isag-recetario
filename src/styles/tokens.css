@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap');
+
+:root {
+  /* Colors */
+  --bg: #FAFAF8;
+  --surface: #FFFFFF;
+  --border: #EBEBEA;
+  --text-primary: #1A1A18;
+  --text-secondary: #6B6B67;
+  --accent: #C8401A;
+  --accent-light: #FDF0EC;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-ui: 'DM Sans', system-ui, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 999px;
+
+  /* Bottom tab bar height — used to offset scrollable content */
+  --tab-bar-height: 64px;
+}
