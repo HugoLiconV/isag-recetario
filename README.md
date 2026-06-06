@@ -1,75 +1,59 @@
-# React + TypeScript + Vite
+# Recetario Digital Personal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mobile-first web app for browsing, searching, and annotating digitized recipes from a cooking course. Public read-only access for classmates, with private notes exclusively for the author.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React 19** + TypeScript
+- **Vite 8** (dev server + build)
+- **React Router** (client-side routing)
+- **Supabase** (auth + private notes with RLS)
+- **CSS custom properties** (design tokens, no CSS-in-JS)
 
-## React Compiler
+## Getting started
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+```bash
+# Install dependencies
+yarn
 
-Note: This will impact Vite dev & build performances.
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your Supabase credentials
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start dev server
+yarn dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Scripts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Command | Description |
+|---------|-------------|
+| `yarn dev` | Vite dev server |
+| `yarn build` | Type-check + production bundle |
+| `yarn lint` | ESLint |
+| `yarn test` | Vitest (single run) |
+| `yarn test:watch` | Vitest (watch mode) |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Architecture
+
+Recipes are stored as Markdown files with YAML frontmatter in `src/content/recipes/`. They are parsed at build time and served as static data — no backend required for browsing.
+
+The author's private notes are stored in Supabase (Postgres + Row Level Security) and only visible after authenticating via `/login`.
+
+### Routes
+
+- `/` — Home (module grid)
+- `/search` — Search
+- `/module/:slug` — Module detail
+- `/module/:slug/recipe/:recipeId` — Recipe detail
+- `/login` — Author authentication (hidden)
+
+## Documentation
+
+- [PRD (Product Requirements Document)](./PRD.md)
+- [Todo / Roadmap](./todo.md)
+- [Claude Code instructions](./CLAUDE.md)
+
+## Environment variables
+
+Requires `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in `.env` for the notes feature. Recipe browsing works without them.
