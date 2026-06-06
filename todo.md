@@ -107,15 +107,15 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 10. Recipe Screen (`/module/:slug/recipe/:recipeId`)
+## 10. Recipe Screen (`/module/:slug/recipe/:recipeId`) ✅
 
-- [ ] Full-screen layout, no bottom tab bar
-- [ ] Hero: module color background, recipe number badge, module name + day label, recipe title in Playfair Display, tags row
-- [ ] Back button to module screen
-- [ ] Two tabs: **Ingredientes** | **Pasos** — equal visual weight, no default tab prominence
-- [ ] Ingredientes tab: table with columns Cantidad / Unidad / Ingrediente, support grouped sections if frontmatter defines them
-- [ ] Pasos tab: numbered cards, step number in Playfair Display accent color, body text large
-- [ ] Floating notes button — visible only when `useAuth().session` is active
+- [x] Full-screen layout, no bottom tab bar
+- [x] Hero: module color background, recipe number badge, module name + day label, recipe title in Playfair Display, tags row
+- [x] Back button to module screen
+- [x] Two tabs: **Ingredientes** | **Pasos** — equal visual weight, no default tab prominence
+- [x] Ingredientes tab: table with columns Cantidad / Unidad / Ingrediente, support grouped sections if frontmatter defines them
+- [x] Pasos tab: numbered cards, step number in Playfair Display accent color, body text large
+- [x] Floating notes button — visible only when `useAuth().session` is active
 
 ---
 

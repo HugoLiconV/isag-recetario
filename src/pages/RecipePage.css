@@ -1,0 +1,200 @@
+/* ── Hero ── */
+
+.recipe-page__hero {
+  position: relative;
+  padding: var(--space-16) var(--space-4) var(--space-6);
+  overflow: hidden;
+}
+
+.recipe-page__back {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-2);
+}
+
+.recipe-page__hero-number {
+  position: absolute;
+  top: -12px;
+  right: var(--space-4);
+  font-family: var(--font-display);
+  font-size: 140px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.07);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.recipe-page__badge {
+  position: relative;
+  margin-bottom: var(--space-2);
+}
+
+.recipe-page__meta {
+  position: relative;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-1);
+}
+
+.recipe-page__title {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-3);
+}
+
+.recipe-page__tags {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* ── Tab bar ── */
+
+.recipe-page__tabs {
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.recipe-page__tab {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  border-bottom: 2px solid transparent;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.recipe-page__tab--active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ── Ingredientes ── */
+
+.recipe-page__content {
+  padding: var(--space-4);
+  padding-bottom: var(--space-16);
+}
+
+.recipe-page__section-heading {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: var(--space-4) 0 var(--space-2);
+}
+
+.recipe-page__section-heading:first-child {
+  margin-top: 0;
+}
+
+.recipe-page__ingredient-header {
+  display: grid;
+  grid-template-columns: 72px 72px 1fr;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.recipe-page__ingredient-row {
+  display: grid;
+  grid-template-columns: 72px 72px 1fr;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-ui);
+  font-size: 15px;
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+}
+
+.recipe-page__ingredient-row:nth-child(even) {
+  background: rgba(0, 0, 0, 0.025);
+}
+
+.recipe-page__ingredient-amount {
+  font-weight: 500;
+  text-align: right;
+}
+
+.recipe-page__ingredient-unit {
+  color: var(--text-secondary);
+}
+
+/* ── Pasos ── */
+
+.recipe-page__steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.recipe-page__step {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.recipe-page__step-number {
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.4;
+}
+
+.recipe-page__step-text {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+
+/* ── Notes FAB ── */
+
+.recipe-page__notes-fab {
+  position: fixed;
+  bottom: var(--space-6);
+  right: var(--space-4);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.12s ease;
+}
+
+.recipe-page__notes-fab:active {
+  transform: scale(0.92);
+}
