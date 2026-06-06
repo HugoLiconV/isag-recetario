@@ -85,14 +85,14 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 8. Search Screen (`/search`)
+## 8. Search Screen (`/search`) ✅
 
-- [ ] Layout: input with autofocus + results area + bottom tab bar
-- [ ] Empty state: list of all modules with their color (same visual as home cards, compact)
-- [ ] With query: real-time search across all recipes, results grouped by module
-- [ ] Each result shows recipe name + module + day context
-- [ ] No-results state: friendly message
-- [ ] Tapping a result navigates to the recipe
+- [x] Layout: input with autofocus + results area + bottom tab bar
+- [x] Empty state: list of all modules with their color (same visual as home cards, compact)
+- [x] With query: real-time search across all recipes, results grouped by module
+- [x] Each result shows recipe name + module + day context
+- [x] No-results state: friendly message
+- [x] Tapping a result navigates to the recipe
 
 ---
 

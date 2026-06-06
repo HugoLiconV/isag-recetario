@@ -10,7 +10,10 @@
       "Bash(npx tsc:*)",
       "Bash(node -e:*)",
       "Bash(npm uninstall:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(npm install:*)",
+      "Bash(npx vitest run:*)",
+      "Bash(yarn build:*)"
     ]
   }
 }
