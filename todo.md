@@ -130,14 +130,14 @@ Tasks ordered by dependency. P0 = must have (v1 launch), P1 = should have.
 
 ---
 
-## 12. Login Screen (`/login`)
+## 12. Login Screen (`/login`) ✅
 
-- [ ] Minimal form: email + password fields + submit button
-- [ ] No branding or links — plain, functional
-- [ ] On submit: call `supabase.auth.signInWithPassword()`
-- [ ] On success: redirect to `/`
-- [ ] On error: show inline error message
-- [ ] If already logged in: redirect to `/`
+- [x] Minimal form: email + password fields + submit button
+- [x] No branding or links — plain, functional
+- [x] On submit: call `supabase.auth.signInWithPassword()`
+- [x] On success: redirect to `/`
+- [x] On error: show inline error message
+- [x] If already logged in: redirect to `/`
 
 ---
 

@@ -14,7 +14,8 @@
       "Bash(npm install:*)",
       "Bash(npx vitest run:*)",
       "Bash(yarn build:*)",
-      "Bash(yarn lint:*)"
+      "Bash(yarn lint:*)",
+      "WebFetch(domain:supabase.com)"
     ]
   }
 }
