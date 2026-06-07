@@ -19,7 +19,8 @@
       "Bash(yarn add:*)",
       "Bash(yarn validate-recipes:*)",
       "Bash(yarn vitest run:*)",
-      "Bash(yarn test:*)"
+      "Bash(yarn test:*)",
+      "Bash(yarn tsc:*)"
     ]
   }
 }

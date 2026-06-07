@@ -3,31 +3,13 @@ import { useParams, Navigate } from 'react-router-dom'
 import { getModulos, getRecipe } from '../lib/recipes'
 import { useAuth } from '../context/AuthContext'
 import { supabase, type Note } from '../lib/supabase'
+import { scaleAmount } from '../lib/scaleAmount'
 import BackButton from '../components/BackButton'
 import Badge from '../components/Badge'
 import Tag from '../components/Tag'
 import NotesModal from '../components/NotesModal'
 import StepByStepModal from '../components/StepByStepModal'
 import './RecipePage.css'
-
-function scaleAmount(amount: string, ratio: number): string {
-  if (ratio === 1) return amount
-  // Try fraction like "1/2"
-  const fractionMatch = amount.match(/^(\d+)\/(\d+)$/)
-  if (fractionMatch) {
-    const value = (parseInt(fractionMatch[1]) / parseInt(fractionMatch[2])) * ratio
-    const rounded = Math.round(value * 10) / 10
-    return rounded % 1 === 0 ? String(Math.round(rounded)) : String(rounded)
-  }
-  // Try plain number
-  const num = parseFloat(amount)
-  if (!isNaN(num) && String(num) === amount.trim()) {
-    const scaled = num * ratio
-    const rounded = Math.round(scaled * 10) / 10
-    return rounded % 1 === 0 ? String(Math.round(rounded)) : String(rounded)
-  }
-  return amount
-}
 
 export default function RecipePage() {
   const { slug, recipeId } = useParams<{ slug: string; recipeId: string }>()
