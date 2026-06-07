@@ -25,7 +25,7 @@ tags: [vegetales, caldo, base, fondos]
 | 1        | pza    | Sachet d'épices (receta 1.2) |
 | 4        | kg     | Hielo                        |
 
-## Preparación
+## Pasos
 
 1. Lavar y limpiar los vegetales, cortar en macedonia.
 2. Escaldar los jitomates y cortar en concassé.

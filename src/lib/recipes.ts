@@ -55,8 +55,19 @@ function parseTitle(body: string): string {
   return match ? match[1].trim() : ''
 }
 
-function filenameToSlug(path: string): string {
-  return path.split('/').pop()!.replace(/\.md$/, '')
+/** Extract the three path segments from a glob path like `../content/recipes/07-reposteria/02-merengues/01-receta.md` */
+function parseRecipePath(path: string) {
+  const segments = path.split('/')
+  const moduleFolder = segments[segments.length - 3] // e.g. "07-reposteria"
+  const dayFolder = segments[segments.length - 2]    // e.g. "02-merengues-y-macarrones"
+  const filename = segments[segments.length - 1]     // e.g. "01-macarrones-frambuesa.md"
+  const slug = filename.replace(/\.md$/, '')
+
+  const moduloSlug = moduleFolder
+  const dia = parseInt(dayFolder.split('-')[0], 10)
+  const orden = parseInt(filename.split('-')[0], 10)
+
+  return { slug, moduloSlug, dia, orden }
 }
 
 // ---------------------------------------------------------------------------
@@ -68,18 +79,18 @@ let _recipes: Recipe[] | null = null
 function buildRecipes(): Recipe[] {
   return Object.entries(modules).map(([path, raw]) => {
     const { data, content } = parseFrontmatter(raw)
-    const slug = filenameToSlug(path)
+    const { slug, moduloSlug, dia, orden } = parseRecipePath(path)
     const ingredientsSection = content.match(/## Ingredientes\n([\s\S]*?)(?=\n## |\n# |$)/)
     const ingredientsBody = ingredientsSection ? ingredientsSection[1] : ''
 
     return {
-      id: `${data.modulo_slug}-dia${data.dia}-${slug}`,
+      id: `${moduloSlug}-dia${dia}-${slug}`,
       slug,
       modulo: data.modulo as string,
-      modulo_slug: data.modulo_slug as string,
-      dia: data.dia as number,
+      modulo_slug: moduloSlug,
+      dia,
       dia_tema: data.dia_tema as string,
-      orden: data.orden as number,
+      orden,
       tags: (data.tags as string[]) ?? [],
       porciones: data.porciones as number,
       imagen_portada: data.imagen_portada as string | undefined,

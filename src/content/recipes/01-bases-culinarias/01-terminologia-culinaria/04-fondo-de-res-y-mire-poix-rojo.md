@@ -33,7 +33,7 @@ tags: [caldo, base, res, fondos]
 | 1        | l      | Agua                       |
 | 4        | kg     | Bolsa hielo                |
 
-## Preparación
+## Pasos
 
 1. Cortar la zanahoria y cebolla en macedonia.
 2. Dejar el ajo entero.

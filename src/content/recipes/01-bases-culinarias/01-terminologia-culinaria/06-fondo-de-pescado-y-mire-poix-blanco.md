@@ -31,7 +31,7 @@ tags: [pescado, caldo, base, fondos, mariscos]
 | 0.008    | kg     | Ajo            |
 | 4        | kg     | Hielo          |
 
-## Preparación
+## Pasos
 
 _Cortar el champiñón en cuartos_
 

@@ -32,7 +32,7 @@ tags: [pollo, ave, caldo, base, fondos]
 | 1.5      | l      | Agua                       |
 | 4        | kg     | Bolsa hielo para enfriar   |
 
-## Preparación
+## Pasos
 
 _Cortar la zanahoria, la cebolla y ajo en macedonia._
 _Dejar el ajo entero._

@@ -18,7 +18,7 @@ tags: [aromáticos, base, hierbas, bouquet]
 | 0.050    | kg     | Estragon fresco  |
 | c/s      |        | Hilo para bridar |
 
-## Preparación
+## Pasos
 
 **DIVIDIR LA RECETA ENTRE TRES**
 **FORMAR TRES PIEZAS DE BOUQUET**

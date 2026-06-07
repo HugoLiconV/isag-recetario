@@ -10,17 +10,16 @@ export type Ingredient = {
 }
 
 export type Recipe = {
-  // Frontmatter
   id: string              // derived: "{modulo_slug}-dia{dia}-{slug}"
-  slug: string            // derived from filename
-  modulo: string
-  modulo_slug: string
-  dia: number
-  dia_tema: string
-  orden: number
-  tags: string[]
-  porciones: number
-  imagen_portada?: string
+  slug: string            // from filename (NN-slug.md)
+  modulo: string          // frontmatter
+  modulo_slug: string     // from module folder (NN-slug)
+  dia: number             // from day folder prefix (NN)
+  dia_tema: string        // frontmatter
+  orden: number           // from recipe filename prefix (NN)
+  tags: string[]          // frontmatter
+  porciones: number       // frontmatter
+  imagen_portada?: string // frontmatter (optional)
   // Parsed body
   title: string
   ingredient_groups: IngredientGroup[]

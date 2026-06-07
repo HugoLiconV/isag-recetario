@@ -5,7 +5,7 @@ tags: [vegetales, corte, preparación, base]
 porciones: 1
 ---
 
-# Peperonata
+# Corte de Vegetales / Peperonata
 
 ## Ingredientes
 
@@ -51,7 +51,7 @@ porciones: 1
 
 | 0.002 | kg | Pimienta negra molida |
 
-## Preparación
+## Pasos
 
 ### Lavado, limpieza y corte de vegetales
 

@@ -20,7 +20,7 @@ tags: [especias, sachet, infusión, aromáticos]
 | 0.002    | kg     | Pimienta negra entera |
 | c/s      |        | Hilo algodón blanco   |
 
-## Preparación
+## Pasos
 
 _Usar solo los tallos del perejil_
 
