@@ -15,7 +15,11 @@
       "Bash(npx vitest run:*)",
       "Bash(yarn build:*)",
       "Bash(yarn lint:*)",
-      "WebFetch(domain:supabase.com)"
+      "WebFetch(domain:supabase.com)",
+      "Bash(yarn add:*)",
+      "Bash(yarn validate-recipes:*)",
+      "Bash(yarn vitest run:*)",
+      "Bash(yarn test:*)"
     ]
   }
 }

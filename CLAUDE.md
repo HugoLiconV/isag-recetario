@@ -21,7 +21,7 @@ Mobile-first recipe book app. Recipes are stored as markdown files with YAML fro
 
 ### Data flow
 
-Markdown files in `src/content/recipes/` → loaded via `import.meta.glob('*.md', { query: '?raw' })` at build time → parsed by `parseFrontmatter.ts` (custom, no Node dependencies) + body parsers in `recipes.ts` → cached in-memory as `Recipe[]`.
+Markdown files in `src/content/recipes/` → loaded via `import.meta.glob('**/*.md', { query: '?raw' })` at build time → parsed by `parseFrontmatter.ts` (custom, no Node dependencies) + body parsers in `recipes.ts` → cached in-memory as `Recipe[]`.
 
 ### Key modules
 
@@ -32,7 +32,7 @@ Markdown files in `src/content/recipes/` → loaded via `import.meta.glob('*.md'
 
 ### Recipe markdown format
 
-Files follow `{module-slug}-dia{N}-{recipe-name}.md`. Frontmatter keys: `modulo`, `modulo_slug`, `dia`, `dia_tema`, `orden`, `tags` (bracket array), `porciones`, `imagen_portada` (optional). Body has `# Title`, `## Ingredientes` (markdown tables, optionally split by `### Section`), and `## Pasos` (numbered list).
+Files are organized in nested folders: `{module-slug}/{dia-N-tema}/{recipe-name}.md` (e.g. `07-reposteria/dia-2-merengues-y-macarrones/macarrones-frambuesa.md`). Frontmatter keys: `modulo`, `modulo_slug`, `dia`, `dia_tema`, `orden`, `tags` (bracket array), `porciones`, `imagen_portada` (optional). Body has `# Title`, `## Ingredientes` (markdown tables, optionally split by `### Section`), and `## Pasos` (numbered list).
 
 ### Routing
 

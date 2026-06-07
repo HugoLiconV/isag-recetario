@@ -3,7 +3,7 @@ import { getModuleColor } from './moduleColors'
 import { parseFrontmatter } from './parseFrontmatter'
 
 // Load all .md files as raw strings at build time
-const modules = import.meta.glob('../content/recipes/*.md', {
+const modules = import.meta.glob('../content/recipes/**/*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
@@ -73,7 +73,7 @@ function buildRecipes(): Recipe[] {
     const ingredientsBody = ingredientsSection ? ingredientsSection[1] : ''
 
     return {
-      id: `${data.modulo_slug}-dia${data.dia}-${slug.split('-').slice(2).join('-')}`,
+      id: `${data.modulo_slug}-dia${data.dia}-${slug}`,
       slug,
       modulo: data.modulo as string,
       modulo_slug: data.modulo_slug as string,

@@ -1,9 +1,6 @@
 ---
-modulo: "Repostería"
-modulo_slug: "07-reposteria"
-dia: 2
-dia_tema: "Merengues y Macarrones"
-orden: 1
+modulo: 'Repostería'
+dia_tema: 'Merengues y Macarrones'
 tags: [frambuesa, merengue, francés]
 porciones: 4
 ---
@@ -12,18 +9,18 @@ porciones: 4
 
 ## Ingredientes
 
-| Cantidad | Unidad | Ingrediente      |
-|----------|--------|------------------|
-| 150      | g      | Almendra molida  |
-| 150      | g      | Azúcar glass     |
-| 55       | g      | Claras de huevo  |
-| 150      | g      | Azúcar refinada  |
-| 50       | ml     | Agua             |
+| Cantidad | Unidad | Ingrediente     |
+| -------- | ------ | --------------- |
+| 150      | g      | Almendra molida |
+| 150      | g      | Azúcar glass    |
+| 55       | g      | Claras de huevo |
+| 150      | g      | Azúcar refinada |
+| 50       | ml     | Agua            |
 
 ### Relleno
 
 | Cantidad | Unidad | Ingrediente        |
-|----------|--------|--------------------|
+| -------- | ------ | ------------------ |
 | 200      | g      | Frambuesas frescas |
 | 100      | g      | Mantequilla        |
 | 80       | g      | Azúcar glass       |
