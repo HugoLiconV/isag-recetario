@@ -68,6 +68,8 @@ export function validateRecipesDir(recipesDir: string): ValidationOutput {
   }
 
   for (const entry of entries) {
+    if (entry === 'README.md') continue
+
     const entryPath = join(recipesDir, entry)
     const stat = statSync(entryPath)
 
